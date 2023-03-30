@@ -1,3 +1,4 @@
+import 'package:ex_first/fluter_youtube/home.dart';
 import 'package:ex_first/kido/follow_ups/follow_up_screen.dart';
 import 'package:ex_first/my_code.dart';
 import 'package:ex_first/self/my_self_code.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const FollowUpScreen());
+        home: const MyHome());
   }
 }
 

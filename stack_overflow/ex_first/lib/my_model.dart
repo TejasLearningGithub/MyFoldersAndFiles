@@ -11,7 +11,7 @@ class Timer {
     if (json['dataseries'] != null) {
       dataseries = <Dataseries>[];
       json['dataseries'].forEach((v) {
-               dataseries!.add(Dataseries.fromJson(v));
+        dataseries!.add(Dataseries.fromJson(v));
       });
     }
   }
