@@ -1,3 +1,9 @@
+import 'package:accessing_kido_apis/ADD_LEAD/add_lead_provider.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/drop_down_screen.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/get_cities_by_state.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/get_city_on_click.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/kido_state_screen.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/retrive_program_screen.dart';
 import 'package:accessing_kido_apis/country/country_provider.dart';
 import 'package:accessing_kido_apis/country/country_screen.dart';
 import 'package:accessing_kido_apis/get_state_by_country_id/state_provider.dart';
@@ -11,6 +17,8 @@ import 'package:accessing_kido_apis/mock_apis/provider/mock_apis_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'drop_down_menu/ex1.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,9 +31,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider(
-        //   create: (_) => CountryProvider(),
-        // ),
+        ChangeNotifierProvider(
+          create: (_) => AddLeadProvider(),
+        ),
         ChangeNotifierProvider(
           create: (_) => MockProvider(),
         ),
@@ -42,7 +50,7 @@ class MyApp extends StatelessWidget {
           create: (_) => StateProvider(),
         ),
       ],
-      child: const MaterialApp(home: StateScreen()),
+      child: const MaterialApp(home: AccessingUseOfDropdown()),
     );
   }
 }
