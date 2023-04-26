@@ -7,13 +7,17 @@ import 'package:kido_drop_down_apis/common/screen/center_data_screen.dart';
 import 'package:kido_drop_down_apis/ex_drop_down.dart';
 import 'package:kido_drop_down_apis/filter_functionality/mock_apis/provider/person_provider.dart';
 import 'package:kido_drop_down_apis/filter_functionality/mock_apis/screen/person_display.dart';
+import 'package:kido_drop_down_apis/info_card/info_card_screen.dart';
 import 'package:kido_drop_down_apis/kido/chip_with_tab_bar/ex_self.dart';
 import 'package:kido_drop_down_apis/kido/chip_with_tab_bar/experiment/my_ex_first.dart';
 import 'package:kido_drop_down_apis/kido/chip_with_tab_bar/experiment/my_ex_second.dart';
 import 'package:kido_drop_down_apis/kido/chip_with_tab_bar/my_app.dart';
+import 'package:kido_drop_down_apis/kido_tab_bar_chip/ex_self.dart';
+import 'package:kido_drop_down_apis/kido_tab_bar_chip/kido_screen.dart';
 import 'package:kido_drop_down_apis/provider/center_provider.dart';
 import 'package:kido_drop_down_apis/provider/country_provider.dart';
 import 'package:kido_drop_down_apis/provider/zone_provider.dart';
+import 'package:kido_drop_down_apis/use_wrap_flutter/ex_wrap.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -53,7 +57,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyTabBarApp(),
+      home: const WrapW(),
     );
   }
 }

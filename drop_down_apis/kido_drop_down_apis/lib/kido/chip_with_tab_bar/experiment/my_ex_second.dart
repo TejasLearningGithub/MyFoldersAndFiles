@@ -1,5 +1,6 @@
 //This example demomstrate chips - permenant
 import 'package:flutter/material.dart';
+import 'package:kido_drop_down_apis/theme/theme_constant.dart';
 
 class MyExampleSecond extends StatefulWidget {
   const MyExampleSecond({super.key});
@@ -18,7 +19,7 @@ class _MyExampleSecondState extends State<MyExampleSecond> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            color: Colors.blueGrey,
+            color: AppColors.lightblue,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -33,6 +34,9 @@ class _MyExampleSecondState extends State<MyExampleSecond> {
                     },
                     selectedColor: Colors.blue,
                     disabledColor: Colors.white,
+                    side: const BorderSide(
+                      color: Colors.black,
+                    ),
                   ),
                   const SizedBox(
                     width: 5,
@@ -47,6 +51,9 @@ class _MyExampleSecondState extends State<MyExampleSecond> {
                     },
                     selectedColor: Colors.blue,
                     disabledColor: Colors.white,
+                    side: const BorderSide(
+                      color: Colors.black,
+                    ),
                   ),
                   const SizedBox(
                     width: 5,
@@ -61,6 +68,9 @@ class _MyExampleSecondState extends State<MyExampleSecond> {
                     },
                     selectedColor: Colors.blue,
                     disabledColor: Colors.white,
+                    side: const BorderSide(
+                      color: Colors.black,
+                    ),
                   ),
                 ],
               ),
