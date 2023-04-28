@@ -5,9 +5,9 @@ import 'package:kido_drop_down_apis/theme/theme_constant.dart';
 class InfoCard extends StatelessWidget {
   final GlobalKey<NavigatorState>? navKey;
   final String? screenRoute;
-  final String leadId;
+  final String? leadId;
   final String stage;
-  final String leadNumber;
+  final String? leadNumber;
   final String statusName;
   final String subStatusName;
   final String childFirstName;
@@ -20,9 +20,9 @@ class InfoCard extends StatelessWidget {
     super.key,
     this.navKey,
     this.screenRoute,
-    required this.leadId,
+    this.leadId,
     required this.stage,
-    required this.leadNumber,
+    this.leadNumber,
     required this.statusName,
     required this.subStatusName,
     required this.childFirstName,
@@ -35,17 +35,17 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // if (permit) {
-        //   Navigator.pushNamed(
-        //     navKey!.currentContext,
-        //     screenRoute!,
-        //     arguments: {'leadId': leadId},
-        //   );
-        // } else {
-        //   scaffoldMessage('Permission Denied', context);
-        // }
-      },
+      // onTap: () {
+      //   if (permit) {
+      //     Navigator.pushNamed(
+      //       navKey.currentContext!,
+      //       screenRoute,
+      //       arguments: {'leadId': leadId},
+      //     );
+      //   } else {
+      //     scaffoldMessage('Permission Denied',context);
+      //   }
+      // },
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 8,
@@ -55,10 +55,10 @@ class InfoCard extends StatelessWidget {
           width: double.maxFinite,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
+            color: AppColors.white,
             border: Border.all(
               style: BorderStyle.solid,
-              color: Colors.blue.shade900,
+              color: AppColors.darkBlue,
               width: 1,
             ),
             boxShadow: const [
@@ -89,7 +89,7 @@ class InfoCard extends StatelessWidget {
                                 : stage == 'Tour Booked'
                                     ? Colors.blue
                                     : Colors.grey,
-                    //borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
@@ -100,79 +100,59 @@ class InfoCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Wrap(
-                        direction: Axis.horizontal,
-                        alignment: WrapAlignment.center,
-                        runAlignment: WrapAlignment.center,
-                        textDirection: TextDirection.ltr,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                leadNumber,
-                                style: montserratBold,
-                              ),
-                              const SizedBox(width: 46),
-                              Container(
-                                height: 20,
-                                width: 78,
-                                decoration: BoxDecoration(
-                                    //color: Colors.blue,
-                                    color: stage == 'LOST'
-                                        ? Colors.red
-                                        : stage == 'ENROLLED'
-                                            ? AppColors.oliveGreen
-                                            : stage == 'Warm' ||
-                                                    stage == 'Post Tour'
-                                                ? AppColors.darkOrange
-                                                : stage == 'Tour Booked'
-                                                    ? Colors.blue
-                                                    : Colors.grey,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(15))),
-                                child: Center(
-                                  child: Text(
-                                    stage,
-                                    style: montserratBold.copyWith(
-                                        fontSize: 10, color: AppColors.white),
-                                  ),
-                                ),
-                              ),
-                            ],
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.star),
+                        Text(
+                          parentName,
+                          style: montserratBold,
+                        ),
+                        const SizedBox(width: 36),
+                        Container(
+                          height: 20,
+                          width: 78,
+                          decoration: BoxDecoration(
+                              //color: Colors.blue,
+                              color: stage == 'LOST'
+                                  ? Colors.red
+                                  : stage == 'ENROLLED'
+                                      ? AppColors.oliveGreen
+                                      : stage == 'Warm' || stage == 'Post Tour'
+                                          ? AppColors.darkOrange
+                                          : stage == 'Tour Booked'
+                                              ? Colors.blue
+                                              : Colors.grey,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(15))),
+                          child: Center(
+                            child: Text(
+                              stage,
+                              style: montserratBold.copyWith(
+                                  fontSize: 10, color: AppColors.white),
+                            ),
                           ),
-                        ]),
+                        ),
+                      ],
+                    ),
                     vs(),
                     IntrinsicHeight(
                       child: Row(
                         children: [
                           Text(
-                            parentName,
+                            'Status : NEW LEAD YTC - NO RESPONSE',
                             style: montserratBold.copyWith(
-                              fontSize: 16,
-                            ),
-                          ),
-                          VerticalDivider(
-                            width: 10,
-                            thickness: 3,
-                            color: Colors.blue.shade900,
-                          ),
-                          Expanded(
-                            child: Text(
-                              'ABC',
-                              style: montserratBold.copyWith(
-                                fontSize: 16,
-                              ),
-                            ),
+                                fontSize: 16, color: AppColors.lightGrey),
                           ),
                         ],
                       ),
                     ),
                     vs(),
                     Text(
-                      schoolName,
+                      'Source cat: Source category',
                       style: montserratBold.copyWith(
                         fontSize: 12,
+                        color: AppColors.lightGrey,
                       ),
                     ),
                     vs(),
@@ -180,22 +160,10 @@ class InfoCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Status : ',
+                          'Last Activity : date/time  due:date/time',
                           style: montserratBold.copyWith(
-                            fontSize: 12,
-                            color: Colors.yellow.shade700,
-                          ),
+                              fontSize: 12, color: AppColors.lightGrey),
                         ),
-                        Expanded(
-                          child: SizedBox(
-                            child: Text(
-                              "$statusName - $subStatusName",
-                              style: montserratBold.copyWith(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        )
                       ],
                     )
                   ],
@@ -207,18 +175,18 @@ class InfoCard extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget vs() {
-    return const SizedBox(
-      height: 4,
-    );
-  }
+Widget vs() {
+  return const SizedBox(
+    height: 4,
+  );
+}
 
-  Widget hs() {
-    return const SizedBox(
-      height: 7,
-    );
-  }
+Widget hs() {
+  return const SizedBox(
+    height: 7,
+  );
 }
 
 void scaffoldMessage(String message, BuildContext context) {
