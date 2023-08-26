@@ -95,11 +95,12 @@ class _AllPokemonState extends State<AllPokemon> {
                       ).p12(),
               ),
               Container(
-                  height: (isLoading && pokemons.isNotEmpty) ? 50.0 : 0,
-                  color: Colors.transparent,
-                  child: const Center(
-                    child: CircularProgressIndicator(),
-                  )),
+                height: (isLoading && pokemons.isNotEmpty) ? 50.0 : 0,
+                color: Colors.transparent,
+                child: const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
             ],
           ),
         ),

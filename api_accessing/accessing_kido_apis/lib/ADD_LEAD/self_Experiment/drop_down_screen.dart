@@ -3,7 +3,9 @@ import 'package:accessing_kido_apis/ADD_LEAD/model/center_modal.dart';
 import 'package:accessing_kido_apis/ADD_LEAD/model/city.dart';
 import 'package:accessing_kido_apis/ADD_LEAD/model/country.dart';
 import 'package:accessing_kido_apis/ADD_LEAD/model/state_modal.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/menu_item.dart';
 import 'package:accessing_kido_apis/ADD_LEAD/widget/search_drop_down.dart';
+import 'package:accessing_kido_apis/ADD_LEAD/widget/search_drop_down_self.dart';
 import 'package:accessing_kido_apis/country/country_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -19,6 +21,9 @@ class DependentDropdown extends StatefulWidget {
 
 class _DependentDropdownState extends State<DependentDropdown> {
   List<CenterModal> centerList = [];
+  final GlobalKey<FormFieldState> countryKey = GlobalKey();
+  final GlobalKey<FormFieldState> stateKey = GlobalKey();
+  final GlobalKey<FormFieldState> cityKey = GlobalKey();
   late AddLeadProvider addLeadProvider;
 
   Future initPrefs() async {
@@ -108,8 +113,11 @@ class _DependentDropdownState extends State<DependentDropdown> {
                 "Select Country :",
               ),
               SearchDropDown(
+                  dropDownKey: countryKey,
                   hintText: 'Plese Select Country',
                   onChanged: (val) {
+                    stateKey.currentState?.reset();
+                    cityKey.currentState?.reset();
                     addLeadProvider.parentCountry = val.value;
                     addLeadProvider.getStates(countryId: val.code!);
                   },
@@ -131,9 +139,12 @@ class _DependentDropdownState extends State<DependentDropdown> {
     );
 
     return SearchDropDown(
+        dropDownKey: stateKey,
         hintText: 'Please Select State',
         onChanged: (val) {
           addLeadProvider.parentState = val.value;
+          countryKey.currentState?.reset();
+          cityKey.currentState?.reset();
           addLeadProvider.getCities(stateId: int.parse(val.code.toString()));
         },
         items: stateList.map<MenuItem>((val) {
@@ -145,14 +156,17 @@ class _DependentDropdownState extends State<DependentDropdown> {
         }).toList());
   }
 
-  SearchDropDown selectCity() {
+  MySearchDropdownSelf selectCity() {
     List<CitiesByState> cityList = context.select(
       (AddLeadProvider value) => value.cityList,
     );
 
-    return SearchDropDown(
+    return MySearchDropdownSelf(
+        dropDownKey: cityKey,
         hintText: 'Please Select City',
-        onChanged: (val) {},
+        onChanged: (val) {
+          addLeadProvider.parentCity = val.value;
+        },
         items: cityList.map<MenuItem>((val) {
           return MenuItem(value: val.sId!, display: val.cityName!);
         }).toList());

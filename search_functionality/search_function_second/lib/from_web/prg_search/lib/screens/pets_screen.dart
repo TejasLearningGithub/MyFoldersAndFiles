@@ -133,7 +133,7 @@ class _PetsScreenState extends State<PetsScreen> {
                         petsProvider.searchedPets.data?[index].isFriendly ==
                                 null
                             ? const SizedBox()
-                            : const Icon(
+                              : const Icon(
                                 Icons.pets,
                                 color: Colors.red,
                               ),

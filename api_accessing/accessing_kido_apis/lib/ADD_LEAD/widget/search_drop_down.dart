@@ -1,3 +1,4 @@
+import 'package:accessing_kido_apis/ADD_LEAD/self_Experiment/menu_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchDropDown extends StatefulWidget {
@@ -148,10 +149,10 @@ class _SearchDropDownState extends State<SearchDropDown> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(
-        //vertical: defaultPadding / 2,
-        //horizontal: defaultPadding,
-      ),
+      padding: EdgeInsets.symmetric(
+          //vertical: defaultPadding / 2,
+          //horizontal: defaultPadding,
+          ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -231,16 +232,3 @@ class _SearchDropDownState extends State<SearchDropDown> {
   }
 }
 
-class MenuItem {
-  final String value;
-  final String display;
-  int? code;
-  String? type;
-
-  MenuItem({
-    required this.value,
-    required this.display,
-    this.code,
-    this.type,
-  });
-}

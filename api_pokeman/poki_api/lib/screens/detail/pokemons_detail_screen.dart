@@ -29,9 +29,11 @@ class PokemonDetail extends StatelessWidget {
             margin: EdgeInsets.zero,
             color: getBackGroundColor(pokemon.types[0].types),
             shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30))),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30),
+              ),
+            ),
             child:
                 Hero(tag: pokemon.id, child: Image.network(pokemon.imageUrl)),
           ).wh(context.screenWidth, 200),

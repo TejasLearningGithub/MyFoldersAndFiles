@@ -11,8 +11,10 @@ import 'package:accessing_kido_apis/get_state_by_country_id/state_screen.dart';
 import 'package:accessing_kido_apis/kido/follow_up_provider.dart';
 
 import 'package:accessing_kido_apis/mock_api_self/provider/mock_api_provider.dart';
+import 'package:accessing_kido_apis/mock_api_self/screen/my_screen_mock.dart';
 
 import 'package:accessing_kido_apis/mock_apis/provider/mock_apis_provider.dart';
+import 'package:accessing_kido_apis/mock_apis/screen/mock_apis_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
           create: (_) => StateProvider(),
         ),
       ],
-      child: const MaterialApp(home: AccessingUseOfDropdown()),
+      child: const MaterialApp(home: StateScreen()),
     );
   }
 }

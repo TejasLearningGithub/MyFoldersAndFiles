@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (SM A315F)",
+            "program": "lib/main.dart",
+            "cwd": "search_function_second",
+            "deviceId": "RZ8N81YKEDB",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

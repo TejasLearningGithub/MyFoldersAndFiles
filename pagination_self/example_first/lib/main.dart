@@ -1,5 +1,5 @@
+import 'package:example_first/Pagination/mock_screen.dart';
 
-import 'package:example_first/pagination_api_second/ex_repo_screen.dart';
 import 'package:example_first/provider/posts_provider.dart';
 
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SecondPaginationEx(),
+        home: const MockApiScreen(),
       ),
     );
   }

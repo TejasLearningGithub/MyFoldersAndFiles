@@ -23,38 +23,39 @@ class _SendDataToAnotherScreenState extends State<SendDataToAnotherScreen> {
     });
 
     return Scaffold(
-        body: Container(
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 40,
-          ),
-          const Text('Value for first date '),
-          Text('day = ' + widget.start!.day.toString()),
-          Text('month = ' + widget.start!.month.toString()),
-          Text('year = ' + widget.start!.year.toString()),
-          const Text('============================='),
-          const Text('Value for second date '),
-          Text('day = ' + widget.end!.day.toString()),
-          Text('month = ' + widget.end!.month.toString()),
-          Text('year = ' + widget.end!.year.toString()),
-          Text('Diffrence Between Two Dates'),
-          Expanded(
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  child: ListTile(
-                    title: Text('${items[index]!.day}'),
-                    subtitle: Text(
-                        '${items[index]!.day}/${items[index]!.month}/${items[index]!.year}'),
-                  ),
-                );
-              },
+      body: Container(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
             ),
-          ),
-        ],
+            const Text('Value for first date '),
+            Text('day = ' + widget.start!.day.toString()),
+            Text('month = ' + widget.start!.month.toString()),
+            Text('year = ' + widget.start!.year.toString()),
+            const Text('============================='),
+            const Text('Value for second date '),
+            Text('day = ' + widget.end!.day.toString()),
+            Text('month = ' + widget.end!.month.toString()),
+            Text('year = ' + widget.end!.year.toString()),
+            Text('Diffrence Between Two Dates'),
+            Expanded(
+              child: ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: ListTile(
+                      title: Text('${items[index]!.day}'),
+                      subtitle: Text(
+                          '${items[index]!.day}/${items[index]!.month}/${items[index]!.year}'),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
